@@ -50,7 +50,7 @@ void stripJsonComments(std::string & text) {
         case 'M':
             //Check if at end of comment.
             if (prev == '*' && current == '/') {
-                text.erase(commentStart, commentLength);
+                text.erase(commentStart, commentLength + 1);
                 //Move the iterator back to where the comment started.
                 i = commentStart;
                 prev = i > 0 ? text[i - 1] : 'U';
