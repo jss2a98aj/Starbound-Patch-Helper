@@ -1,7 +1,8 @@
 /.vscode
 /*.exe
 
-/config
+/config/parse_targets
+/config/settings.json
 /intermediary_assets
 /patch_output
 /source_assets

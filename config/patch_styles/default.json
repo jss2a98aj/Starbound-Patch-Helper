@@ -1,0 +1,49 @@
+{
+  "indentationSpacesPerModifier" : 2,
+  //Outer wrapper brackets
+  "newLineAfterOuterOpenerBracket" : true,
+  "newLineAfterOuterCloserBracket" : true,
+  "indentaionInOuterBrackets" : true,
+  //Operation set wrapper brackets (Starbound)
+  "newLineAfterOperationSetOpenerBracket" : true,
+  "newLineAfterOperationSetCloserBracket" : false,
+  "newLineAfterOperationSetCloserBracketComma" : true,
+  "indentaionInOperationSetBrackets" : true,
+  //Operation wrapper brackets
+  "newLineAfterOperationOpenerBracket" : true,
+  "newLineAfterOperationCloserBracket" : false,
+  "newLineAfterOperationCloserBracketComma" : true,
+  "indentaionInOperationBrackets" : true,
+  //Operation contents
+  "newLineAfterOperationSegment" : true,
+  "spaceBeforeOperationColon" : true,
+  "spaceAfterOperationColon" : true
+}
+
+//Format visualization
+//[
+//  [
+//    {
+//      "op" : "test",
+//      "path" : "/path"
+//    },
+//    {
+//      "op" : "replace",
+//      "path" : "/path",
+//      "value" : true
+//    }
+//  ],
+//  [
+//    {
+//      "op" : "test",
+//      "path" : "/path",
+//      "inverse" : true
+//    },
+//    {
+//      "op" : "add",
+//      "path" : "/path",
+//      "value" : "string"
+//    }
+//  ]
+//]
+//
