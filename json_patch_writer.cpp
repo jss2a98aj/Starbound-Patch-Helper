@@ -29,7 +29,9 @@ int JsonPatchWriter::writePatchFile(std::stringstream & patchText, FileSettings 
     //TODO: if only one op set in a patch skip set brackets (configurable)
     //Write operation sets
     for (const PointerSettings & pointerSettings : fileSettings.getAllPointerSettings()) {
-        writeRecursiveOperationSet(patchText, pointerSettings, sourceJson, intermediaryJson);
+        if (!pointerSettings.reference) {
+            writeRecursiveOperationSet(patchText, pointerSettings, sourceJson, intermediaryJson);
+        }
     }
 
     //New line after the last operation set closer.

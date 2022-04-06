@@ -24,9 +24,9 @@ All of this was done without altering the underlying JSON parser. All of it can 
 
 # Future plans
 
-- Build binaries for Linux.
-- Build binaries for Mac. I don't have a Mac. It will require cross compiling.
+- Pre-built binaries for Linux.
+- Pre-built binaries for Mac. I don't have a Mac. It will require cross compiling.
+- More configuration options.
 - More detailed crashes, including printing the path of a read file when parsing fails.
-- Display the time taken to run each command.
 - Support for settings paths other than the default relative ones when running from the command line.
 - Better documentation.

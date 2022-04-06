@@ -1,3 +1,4 @@
+#include <chrono>
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -111,6 +112,7 @@ int main(int argc, char * argv[]) {
                         if (requestBoolean("An intermediary asset folder already exists.\nShould it be replaced?")) {
                             std::cout << "Deleting old intermediary asset folder.\n";
                             fs::remove_all(intermediaryAssetPath);
+                            std::cout << "Old intermediary asset folder deleted.\n";
                         } else {
                             std::cout << "Aborting parse.\n";
                             break;
@@ -122,8 +124,9 @@ int main(int argc, char * argv[]) {
                     //If a patch asset folder exists prompt the user before deleteing it.
                     if (fs::exists(patchOutputPath)) {
                         if (requestBoolean("A patch folder already exists.\nShould it be replaced?")) {
-                            std::cout << "Deleting old patch folder.\n";
+                            std::cout << "Deleting old patch output folder.\n";
                             fs::remove_all(patchOutputPath);
+                            std::cout << "Old patch patch output folder deleted.\n";
                         } else {
                             std::cout << "Aborting make patches.\n";
                             break;
@@ -151,8 +154,9 @@ void parseAssets(MasterSettings & masterSettings, const fs::path sourceAssetPath
     //Stop if the intermediary asset folder exists unless in overwrite mode.
     if (fs::exists(intermediaryAssetPath)) {
         if (masterSettings.getOverwriteFiles()) {
-            std::cout << "Clearing old intermediary asset folder.\n";
+            std::cout << "Deleting old intermediary asset folder.\n";
             fs::remove_all(intermediaryAssetPath);
+            std::cout << "Old intermediary asset folder deleted.\n";
         } else {
             std::cout << "Intermediary asset folder already exists at:"
                 << intermediaryAssetPath.string()
@@ -162,6 +166,10 @@ void parseAssets(MasterSettings & masterSettings, const fs::path sourceAssetPath
         }
     }
 
+    std::cout << "Making intermediary files.\n";
+
+    auto startTime = std::chrono::high_resolution_clock::now();
+    int totalIntermediaryFilesMade = 0;
     JsonIntermediaryWriter intermediaryWriter = JsonIntermediaryWriter();
     //Iteratively parse source assets.
     for (const auto & directory : fs::recursive_directory_iterator(sourceAssetPath)) {
@@ -189,7 +197,10 @@ void parseAssets(MasterSettings & masterSettings, const fs::path sourceAssetPath
                         if (!writeStringStreamToPath(intermediaryText, intermediaryPath)) {
                             std::cout << "Failed to write intermediary file to:\n"
                                 << intermediaryPath.string() << std::endl;
+                                
                         }
+
+                        totalIntermediaryFilesMade++;
                     }
                     //There can only be one match.
                     break;
@@ -198,8 +209,9 @@ void parseAssets(MasterSettings & masterSettings, const fs::path sourceAssetPath
         }
     }
 
+    auto duration = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::high_resolution_clock::now() - startTime);
     //Finished parse notification
-    std::cout << "Parsed intermediary assets at:\n"
+    std::cout << totalIntermediaryFilesMade << " intermediary files created in " << duration.count() << "s at:\n"
         << intermediaryAssetPath.string() << std::endl;
 }
 
@@ -212,8 +224,9 @@ void makePatches(MasterSettings & masterSettings, const fs::path sourceAssetPath
     //Stop if the patch output folder exists unless in overwrite mode.
     if (fs::exists(patchOutputPath)) {
         if (masterSettings.getOverwriteFiles()) {
-            std::cout << "Clearing old patch output folder.\n";
+            std::cout << "Deleting old patch output folder.\n";
             fs::remove_all(patchOutputPath);
+            std::cout << "Old patch output folder deleted.\n";
         } else {
             std::cout << "Patch output folder already exists at:"
                 << patchOutputPath.string()
@@ -223,6 +236,9 @@ void makePatches(MasterSettings & masterSettings, const fs::path sourceAssetPath
         }
     }
 
+    std::cout << "Making patches.\n";
+
+    auto startTime = std::chrono::high_resolution_clock::now();
     int totalPatchesMade = 0;
     int totalValuesAltered = 0;
     JsonPatchWriter patchWriter = JsonPatchWriter(masterSettings);
@@ -263,7 +279,7 @@ void makePatches(MasterSettings & masterSettings, const fs::path sourceAssetPath
                             patchFilePath += pathFragment;
                             patchFilePath += ".patch";
 
-                            //Create the patch file.
+                            //Creating the patch file.
                             if(!writeStringStreamToPath(patchText, patchFilePath)) {
                                 std::cout << "Failed to write patch file to:\n"
                                     << patchFilePath.string() << std::endl;
@@ -279,7 +295,8 @@ void makePatches(MasterSettings & masterSettings, const fs::path sourceAssetPath
         }
     }
 
+    auto duration = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::high_resolution_clock::now() - startTime);
     //Finished patch output notification
-    std::cout << totalPatchesMade << " patches altering " << totalValuesAltered << " values created at:\n"
+    std::cout << totalPatchesMade << " patches containing " << totalValuesAltered << " operation sets created in " << duration.count() << "s at:\n"
         << patchOutputPath.string() << std::endl;
 }

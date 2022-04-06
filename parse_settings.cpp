@@ -28,11 +28,14 @@ FileSettings::FileSettings(fs::path settingsPath) {
 
             if (valuesJson.contains("path")) {
                 pointerSettings.path = valuesJson["path"];
+                if (valuesJson.contains("from")) {
+                    pointerSettings.from = valuesJson["from"];
+                }
                 if (valuesJson.contains("numericIteratorMarker")) {
                     pointerSettings.numericIteratorMarker = valuesJson["numericIteratorMarker"];
                 }
-                if (valuesJson.contains("from")) {
-                    pointerSettings.from = valuesJson["from"];
+                if (valuesJson.contains("reference")) {
+                    pointerSettings.reference = valuesJson["reference"];
                 }
                 if (valuesJson.contains("convertBreakoutNewlines")) {
                     pointerSettings.convertBreakoutNewlines = valuesJson["convertBreakoutNewlines"];

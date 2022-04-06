@@ -19,6 +19,7 @@ struct PointerSettings {
     std::string path = "";
     std::string from = "";
     std::string numericIteratorMarker = "";
+    bool reference = false;
     bool convertBreakoutNewlines = false;
     //Intermediary.
     placeholderCondition intermediaryPlaceholderCondition = never;

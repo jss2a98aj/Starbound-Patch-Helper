@@ -41,10 +41,14 @@ bool JsonIntermediaryWriter::writePointerValuePair(std::stringstream & intermedi
             convertNewlineBreakoutsToNewline(sourceJsonText);
             intermediaryText << '"' << sourceJsonText << '"';
         } else {
-             intermediaryText << sourceJson[valuePointer];
+            intermediaryText << sourceJson[valuePointer];
         }
         //Continue iteration.
         return true;
+    //Value should only be placeholder.
+    } else if (pointerSettings.reference) {
+        //Stop iteration.
+        return false;
     //Value missing, use placeholder if possible.
     } else if (pointerSettings.intermediaryPlaceholderCondition == whenPossible) {
         writePointerValueStart(intermediaryText, pointerSettings);
