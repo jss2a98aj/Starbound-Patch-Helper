@@ -55,10 +55,10 @@ int main(int argc, char * argv[]) {
         //Help.
         if (argv[1] == strHelp) {
             std::cout << "Possible parameters:\n"
-                << strParse //<< " [source asset path] [intermediary asset path]\n"
-                << "    Parses content from source assets into intermediary assets.\n"
-                << strMakePatches //<< " [source asset path] [intermediary asset path] [patch output path]\n"
-                << "    Uses source assets and modified intermediary assets to produce patches.\n";
+                << strParse //<< " [source asset path] [intermediary asset path]"
+                << "\n    Parses content from source assets into intermediary assets.\n"
+                << strMakePatches //<< " [source asset path] [intermediary asset path] [patch output path]"
+                << "\n    Uses source assets and modified intermediary assets to produce patches.\n";
         //Parse.
         } else if (argv[1] == strParse) {
             sourceAssetPath = fs::current_path() /= "source_assets";
@@ -280,6 +280,6 @@ void makePatches(MasterSettings & masterSettings, const fs::path sourceAssetPath
     }
 
     //Finished patch output notification
-    std::cout << totalPatchesMade << " patches replacing and adding " << totalValuesAltered << " values created at:\n"
+    std::cout << totalPatchesMade << " patches altering " << totalValuesAltered << " values created at:\n"
         << patchOutputPath.string() << std::endl;
 }
