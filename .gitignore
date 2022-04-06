@@ -1,0 +1,7 @@
+/.vscode
+/*.exe
+
+/config
+/intermediary_assets
+/patch_output
+/source_assets
