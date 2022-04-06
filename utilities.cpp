@@ -118,6 +118,9 @@ void convertNewlineBreakoutsToNewline(std::string & text) {
         if (prev == '\\' && current == 'n') {
             text.erase(i - 1, 2);
             text.insert(i, "\n");
+        } else if (prev != '\\' && current == '\"') {
+            text.insert(i, "\\");
+            current = '\\';
         }
     }
 }
