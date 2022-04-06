@@ -2,7 +2,7 @@
 
 The Starbound Patch Helper is a tool intended to help automate the creation of patch files. It can be configured to ignore Starbound specific quarks in order to be more widely useful. It was made in my spare time over several weekends. Bugs, crashes, freezes, and other issues are entirely possible.
 
-# What can do
+# What it does
 
 Pull specific values out of "source" JSON files and write them to "intermediary" JSON files. This is entirely dependent on how the configs are set up and the "source" files supplied.
 
