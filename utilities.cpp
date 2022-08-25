@@ -117,11 +117,17 @@ void convertNewlineBreakoutsToNewline(std::string & text) {
         current = text[i];
         if (prev == '\\' && current == 'n') {
             text.erase(i - 1, 2);
-            text.insert(i, "\n");
-        } else if (prev != '\\' && current == '\"') {
+            text.insert(i - 1, "\n");
+            prev = 'U';
+            current = text[i];
+            i--;
+        }
+        //I don't remember why this was here, but it was breaking patch formatting.
+        //Hopefully removing it doesn't break other stuff.
+        /* else if (prev != '\\' && current == '\"') {
             text.insert(i, "\\");
             current = '\\';
-        }
+        }*/
     }
 }
 
