@@ -19,11 +19,19 @@ void stripJsonComments(std::string & text);
 void convertJsonValueNewlinesToBreakout(std::string & text);
 
 /**
- * Converts breakout newlines in values to newlines.
+ * Converts breakout newlines in JSON values to newlines.
  * 
  * @param text The text to convert breakout newlines in.
  */
 void convertNewlineBreakoutsToNewline(std::string & text);
+
+
+/**
+ * Converts quotes in JSON values to breakout quotes.
+ * 
+ * @param text The text to convert quotes in.
+ */
+void convertQuoteToBreakoutQuote(std::string & text);
 
 /**
  * Converts breakout newlines in values to newlines".

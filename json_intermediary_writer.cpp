@@ -39,6 +39,7 @@ bool JsonIntermediaryWriter::writePointerValuePair(std::stringstream & intermedi
         if(pointerSettings.convertBreakoutNewlines) {
             std::string sourceJsonText = sourceJson[valuePointer];
             convertNewlineBreakoutsToNewline(sourceJsonText);
+            convertQuoteToBreakoutQuote(sourceJsonText);
             intermediaryText << '"' << sourceJsonText << '"';
         } else {
             intermediaryText << sourceJson[valuePointer];

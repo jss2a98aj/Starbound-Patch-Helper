@@ -122,12 +122,18 @@ void convertNewlineBreakoutsToNewline(std::string & text) {
             current = text[i];
             i--;
         }
-        //I don't remember why this was here, but it was breaking patch formatting.
-        //Hopefully removing it doesn't break other stuff.
-        /* else if (prev != '\\' && current == '\"') {
+    }
+}
+
+void convertQuoteToBreakoutQuote(std::string & text) {
+    char prev = 'U', current = 'U';
+    for (int i = 0; i < text.size(); i++) {
+        prev = current;
+        current = text[i];
+        if (prev != '\\' && current == '\"') {
             text.insert(i, "\\");
             current = '\\';
-        }*/
+        }
     }
 }
 
