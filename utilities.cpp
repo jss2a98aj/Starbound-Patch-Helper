@@ -6,91 +6,71 @@ using json = nlohmann::json;
 
 namespace fs = std::filesystem;
 
+enum StripMode { structure, quote, commentSingle, commentMulti };
+
 void stripJsonComments(std::string & text) {
-    char mode = 'D';
+    StripMode mode = structure;
     int commentStart, commentLength;
     char prev = 'U', current = 'U';
-    for (int i = 0; i < text.size(); i++) {
+    for(int i = 0; i < text.length(); ++i) {
         prev = current;
         current = text[i];
-
-        switch (mode) {
-        //Default state.
-        case 'D':
-            //Check for a quote.
-            if (current == '"') {
-                mode = 'Q';
-            }
-            //Check for single line comment.
-            else if (prev == '/' && current == '/') {
-                commentStart = i - 1;
-                commentLength = 2;
-                mode = 'S';
-            //Check for multi line comment.
-            } else if (prev == '/' && current == '*') {
-                commentStart = i - 1;
-                commentLength = 2;
-                mode = 'M';
-            }
+        switch(mode) {
+            case structure:
+                if(current == '"') {
+                    mode = quote;
+                } else if(prev == '/') {
+                    if(current == '/') {
+                        mode = commentSingle;
+                        text[i - 1] = ' ';
+                        text[i] = ' ';
+                    } else if(current == '*') {
+                        mode = commentMulti;
+                        text[i - 1] = ' ';
+                        text[i] = ' ';
+                    }
+                }
             break;
-        //Single line comment state.
-        case 'S':
-            //Check if at end of comment.
-            if (current == '\n') {
-                text.erase(commentStart, commentLength);
-                //Move the iterator back to where the comment started.
-                i = commentStart;
-                prev = i > 0 ? text[i - 1] : 'U';
-                mode = 'D';
-            } else {
-                commentLength++;
-            }
+            case quote:
+                if(prev != '\\' && current == '"') {
+                    mode = structure;
+                }
             break;
-        //Multi line comment state.
-        case 'M':
-            //Check if at end of comment.
-            if (prev == '*' && current == '/') {
-                text.erase(commentStart, commentLength + 1);
-                //Move the iterator back to where the comment started.
-                i = commentStart;
-                prev = i > 0 ? text[i - 1] : 'U';
-                mode = 'D';
-            } else {
-                commentLength++;
-            }
+            case commentSingle:
+                if(current == '\n') {
+                    mode = structure;
+                } else {
+                    text[i] = ' ';
+                }
             break;
-        //Quote state.
-        case 'Q':
-            //Check if at end of quote.
-            if (prev != '\\' && current == '"') {
-                mode = 'D';
-            }
+            case commentMulti:
+                if (prev == '*' && current == '/') {
+                    mode = structure;
+                }
+                if(current != '\n') {
+                    text[i] = ' ';
+                }
+            break;
         }
-    }
-    //If in a comment mode after exiting the loop clean it up.
-    if (mode == 'S' || mode == 'M') {
-        text.erase(commentStart, commentLength - 1);
     }
 }
 
 void convertJsonValueNewlinesToBreakout(std::string & text) {
-    char mode = 'D';
+    StripMode mode = structure;
     char prev = 'U', current = 'U';
     for (int i = 0; i < text.size(); i++) {
         prev = current;
         current = text[i];
         switch (mode) {
-        //Default state.
-        case 'D':
+        case structure:
             if (current == '"') {
-                mode = 'Q';
+                mode = quote;
             }
             break;
-        //Quote state.
-        case 'Q':
+        case quote:
             //Check if at end of quote.
             if (prev != '\\' && current == '"') {
-                mode = 'D';
+                mode = structure;
             } else if (current == '\n') {
                 text.erase(i, 1);
                 text.insert(i, "\\n");
