@@ -1,0 +1,64 @@
+{
+  "addPatchMakersComment" : false,
+  "valuesContainNewlines" : false,
+  "values" : [
+    {
+      "path" : "/shortdescription",
+      "intermediaryLabel" : "Item name",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/description",
+      "intermediaryLabel" : "Tooltip description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/outOfRangeText/default/%N%",
+      "numericIteratorMarker" : "%N%",
+      "intermediaryLabel" : "Default out of range scan message %N%",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/outOfRangeText/novakid/%N%",
+      "numericIteratorMarker" : "%N%",
+      "intermediaryLabel" : "Novakid out of range scan message %N%",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/outOfRangeText/floran/%N%",
+      "numericIteratorMarker" : "%N%",
+      "intermediaryLabel" : "Floran out of range scan message %N%",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/outOfRangeText/glitch/%N%",
+      "numericIteratorMarker" : "%N%",
+      "intermediaryLabel" : "Glitch out of range scan message %N%",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/nothingThereText/default/%N%",
+      "numericIteratorMarker" : "%N%",
+      "intermediaryLabel" : "Default nothing there scan message %N%",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/nothingThereText/novakid/%N%",
+      "numericIteratorMarker" : "%N%",
+      "intermediaryLabel" : "Novakid nothing there scan message %N%",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/nothingThereText/floran/%N%",
+      "numericIteratorMarker" : "%N%",
+      "intermediaryLabel" : "Floran nothing there scan message %N%",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/nothingThereText/glitch/%N%",
+      "numericIteratorMarker" : "%N%",
+      "intermediaryLabel" : "Glitch nothing there scan message %N%",
+      "patchTestOperation" : true
+    }
+  ]
+}

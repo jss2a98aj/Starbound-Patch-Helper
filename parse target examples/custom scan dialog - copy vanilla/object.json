@@ -1,0 +1,25 @@
+
+//Both instances of customDescription should be changed to match the custom species dialog path.
+//Values can be copied from something other than Humans by changing the first two instances of humanDescription.
+
+{
+  "addPatchMakersComment" : false,
+  "valuesContainNewlines" : false,
+  "values" : [
+    {
+      "path" : "/customDescription",
+      "from" : "/humanDescription",
+      "intermediaryLabel" : "Custom scan description",
+      "intermediaryPlaceholderCondition" : "when possible",
+      "patchOperationIfPlaceholder" : "copy"
+    },
+    {
+      "path" : "/upgradeStages/%N%/itemSpawnParameters/customDescription",
+      "from" : "/upgradeStages/%N%/itemSpawnParameters/humanDescription",
+      "numericIteratorMarker" : "%N%",
+      "intermediaryLabel" : "Object upgrade stage %N% custom scan description",
+      "intermediaryPlaceholderCondition" : "from exists",
+      "patchOperationIfPlaceholder" : "copy"
+    }
+  ]
+}

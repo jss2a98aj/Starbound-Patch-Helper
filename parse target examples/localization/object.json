@@ -1,0 +1,100 @@
+{
+  "addPatchMakersComment" : false,
+  "valuesContainNewlines" : false,
+  "values" : [
+    {
+      "path" : "/shortdescription",
+      "intermediaryLabel" : "Item name",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/description",
+      "intermediaryLabel" : "Tooltip and generic scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/apexDescription",
+      "intermediaryLabel" : "Apex scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/avianDescription",
+      "intermediaryLabel" : "Avian scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/floranDescription",
+      "intermediaryLabel" : "Floran scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/humanDescription",
+      "intermediaryLabel" : "Human scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/hylotlDescription",
+      "intermediaryLabel" : "Hylotl scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/novakidDescription",
+      "intermediaryLabel" : "Novakid scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/upgradeStages/%N%/itemSpawnParameters/shortdescription",
+      "numericIteratorMarker" : "%N%",
+      "intermediaryLabel" : "Object upgrade stage %N% item name",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/upgradeStages/%N%/itemSpawnParameters/description",
+      "numericIteratorMarker" : "%N%",
+      "intermediaryLabel" : "Object upgrade stage %N% tooltip and generic scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/upgradeStages/%N%/itemSpawnParameters/apexDescription",
+      "numericIteratorMarker" : "%N%",
+      "intermediaryLabel" : "Object upgrade stage %N% Apex scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/upgradeStages/%N%/itemSpawnParameters/avianDescription",
+      "numericIteratorMarker" : "%N%",
+      "intermediaryLabel" : "Object upgrade stage %N% Avian scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/upgradeStages/%N%/itemSpawnParameters/floranDescription",
+      "numericIteratorMarker" : "%N%",
+      "intermediaryLabel" : "Object upgrade stage %N% Floran scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/upgradeStages/%N%/itemSpawnParameters/glitchDescription",
+      "numericIteratorMarker" : "%N%",
+      "intermediaryLabel" : "Object upgrade stage %N% Glitch scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/upgradeStages/%N%/itemSpawnParameters/humanDescription",
+      "numericIteratorMarker" : "%N%",
+      "intermediaryLabel" : "Object upgrade stage %N% Human scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/upgradeStages/%N%/itemSpawnParameters/hylotlDescription",
+      "numericIteratorMarker" : "%N%",
+      "intermediaryLabel" : "Object upgrade stage %N% Hylotl scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/upgradeStages/%N%/itemSpawnParameters/novakidDescription",
+      "numericIteratorMarker" : "%N%",
+      "intermediaryLabel" : "Object upgrade stage %N% Novakid scan description",
+      "patchTestOperation" : true
+    }
+  ]
+}

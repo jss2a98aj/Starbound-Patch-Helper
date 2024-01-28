@@ -1,0 +1,22 @@
+
+//Both instances of customDescription should be changed to match the custom species dialog path.
+
+{
+  "addPatchMakersComment" : false,
+  "valuesContainNewlines" : false,
+  "values" : [
+    {
+      "path" : "/customDescription",
+      "intermediaryLabel" : "Custom scan description",
+      "intermediaryPlaceholderCondition" : "when possible"
+    },
+    {
+      "path" : "/upgradeStages/%N%/itemSpawnParameters/customDescription",
+      "from" : "/upgradeStages/%N%/itemSpawnParameters",
+      "numericIteratorMarker" : "%N%",
+      "intermediaryLabel" : "Object upgrade stage %N% custom scan description",
+      "intermediaryPlaceholderCondition" : "from exists",
+      "patchOperationIfPlaceholder" : "none"
+    }
+  ]
+}

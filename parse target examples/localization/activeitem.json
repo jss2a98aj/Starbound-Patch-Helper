@@ -1,0 +1,21 @@
+{
+  "addPatchMakersComment" : false,
+  "valuesContainNewlines" : false,
+  "values" : [
+    {
+      "path" : "/shortdescription",
+      "intermediaryLabel" : "Item name",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/upgradeParameters/shortdescription",
+      "intermediaryLabel" : "Upgraded item name",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/description",
+      "intermediaryLabel" : "Tooltip description",
+      "patchTestOperation" : true
+    }
+  ]
+}

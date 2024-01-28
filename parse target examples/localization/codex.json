@@ -1,0 +1,24 @@
+{
+  "addPatchMakersComment" : false,
+  "valuesContainNewlines" : true,
+  "values" : [
+    {
+      "path" : "/title",
+      "intermediaryLabel" : "Item name and codex title",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/description",
+      "intermediaryLabel" : "Tooltip description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/contentPages/%N%",
+      "numericIteratorMarker" : "%N%",
+      "convertBreakoutNewlines" : true,
+      "intermediaryLabel" : "Book page %N% counting from 0",
+      //Tests on book pages sometimes fail due to a bug on some platforms
+      "patchTestOperation" : false
+    }
+  ]
+}
