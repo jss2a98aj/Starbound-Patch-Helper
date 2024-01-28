@@ -1,0 +1,11 @@
+{
+  "addPatchMakersComment" : false,
+  "valuesContainNewlines" : false,
+  "values" : [
+    {
+      "path" : "/description",
+      "intermediaryLabel" : "Material modifier description",
+      "patchTestOperation" : true
+    }
+  ]
+}

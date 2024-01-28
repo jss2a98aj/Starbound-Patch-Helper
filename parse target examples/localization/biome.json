@@ -1,0 +1,11 @@
+{
+  "addPatchMakersComment" : false,
+  "valuesContainNewlines" : false,
+  "values" : [
+    {
+      "path" : "/friendlyName",
+      "intermediaryLabel" : "Biome name",
+      "patchTestOperation" : true
+    }
+  ]
+}

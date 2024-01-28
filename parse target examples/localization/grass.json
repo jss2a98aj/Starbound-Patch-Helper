@@ -1,0 +1,46 @@
+{
+  "addPatchMakersComment" : false,
+  "valuesContainNewlines" : false,
+  "values" : [
+    {
+      "path" : "/shortdescription",
+      "intermediaryLabel" : "Item name",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/description",
+      "intermediaryLabel" : "Tooltip and generic scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/apexDescription",
+      "intermediaryLabel" : "Apex scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/avianDescription",
+      "intermediaryLabel" : "Avian scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/floranDescription",
+      "intermediaryLabel" : "Floran scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/humanDescription",
+      "intermediaryLabel" : "Human scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/hylotlDescription",
+      "intermediaryLabel" : "Hylotl scan description",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/novakidDescription",
+      "intermediaryLabel" : "Novakid scan description",
+      "patchTestOperation" : true
+    }
+  ]
+}

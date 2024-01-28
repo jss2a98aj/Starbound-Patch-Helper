@@ -1,0 +1,16 @@
+{
+  "addPatchMakersComment" : false,
+  "valuesContainNewlines" : false,
+  "values" : [
+    {
+      "path" : "/shortDescription",
+      "intermediaryLabel" : "Tech name",
+      "patchTestOperation" : true
+    },
+    {
+      "path" : "/description",
+      "intermediaryLabel" : "Tech description",
+      "patchTestOperation" : true
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "addPatchMakersComment" : false,
+  "valuesContainNewlines" : false,
+  "values" : [
+    {
+      "path" : "/label",
+      "intermediaryLabel" : "Status effect name",
+      "patchTestOperation" : true
+    }
+  ]
+}
