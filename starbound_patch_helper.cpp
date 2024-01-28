@@ -3,7 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
-#include "nlohmann/json.hpp"
+#include <nlohmann/json.hpp>
 #include "global_settings.h"
 #include "json_intermediary_writer.h"
 #include "json_patch_writer.h"

@@ -1,6 +1,7 @@
 /.vscode
 /*.exe
 
+/build/
 /config/settings.json
 /intermediary_assets
 /patch_output

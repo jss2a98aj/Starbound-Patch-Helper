@@ -1,7 +1,7 @@
 #pragma once
 
 #include <filesystem>
-#include "nlohmann/json.hpp"
+#include <nlohmann/json.hpp>
 #include "patch_style_settings.h"
 
 class MasterSettings {

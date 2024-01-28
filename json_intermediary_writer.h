@@ -1,7 +1,7 @@
 #pragma once
 
 #include <sstream>
-#include "nlohmann/json.hpp"
+#include <nlohmann/json.hpp>
 #include "parse_settings.h"
 
 class JsonIntermediaryWriter {

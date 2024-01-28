@@ -2,7 +2,7 @@
 
 #include <filesystem>
 #include <sstream>
-#include "nlohmann/json.hpp"
+#include <nlohmann/json.hpp>
 
 /**
  * Strip JSON comments from strings.
