@@ -3,17 +3,17 @@
   //Outer wrapper brackets
   "newLineAfterOuterOpenerBracket" : true,
   "newLineAfterOuterCloserBracket" : true,
-  "indentaionInOuterBrackets" : true,
+  "indentationInOuterBrackets" : true,
   //Operation set wrapper brackets (Starbound)
   "newLineAfterOperationSetOpenerBracket" : true,
   "newLineAfterOperationSetCloserBracket" : false,
   "newLineAfterOperationSetCloserBracketComma" : true,
-  "indentaionInOperationSetBrackets" : true,
+  "indentationInOperationSetBrackets" : true,
   //Operation wrapper brackets
   "newLineAfterOperationOpenerBracket" : true,
   "newLineAfterOperationCloserBracket" : false,
   "newLineAfterOperationCloserBracketComma" : true,
-  "indentaionInOperationBrackets" : true,
+  "indentationInOperationBrackets" : true,
   //Operation contents
   "newLineAfterOperationSegment" : true,
   "spaceBeforeOperationColon" : true,

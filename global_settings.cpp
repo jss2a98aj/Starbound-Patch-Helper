@@ -49,7 +49,7 @@ void MasterSettings::writeSettings(std::stringstream & settingsText) {
         << "\n  \"baselinePatchStyleName\" : \"" << baselinePatchStyleName << "\","
         << "\n  //Skip prompts to delete files. Not suggested for normal use."
         << "\n  \"overwriteFiles\" : " << (overwriteFiles ? "true" : "false") << ','
-        << "\n  //Inverse tests are used by Starbound to see if a value is present or not, regardles of its contents."
+        << "\n  //Inverse tests are used by Starbound to see if a value is present or not, regardless of its contents."
         << "\n  \"useInverseTestOps\" : " << (useInverseTestOps ? "true" : "false") << ','
         << "\n  //Operation sets are used by Starbound to allow more than one set of operations to be applied from a patch file."
         << "\n  \"useOperationSets\" : " << (useOperationSets ? "true" : "false")

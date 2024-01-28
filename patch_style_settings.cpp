@@ -26,17 +26,17 @@ void PatchStyleSettings::writeSettings(std::stringstream & settingsText) {
         << "\n  //Outer wrapper brackets"
         << "\n  \"newLineAfterOuterOpenerBracket\" : " << newLineAfterOuterOpenerBracket
         << "\n  \"newLineAfterOuterCloserBracket\" : " << newLineAfterOuterCloserBracket
-        << "\n  \"indentaionInOuterBrackets\" : " << indentaionInOuterBrackets
+        << "\n  \"indentationInOuterBrackets\" : " << indentationInOuterBrackets
         << "\n  //Operation set wrapper brackets (Starbound)"
         << "\n  \"newLineAfterOperationSetOpenerBracket\" : " << newLineAfterOperationSetOpenerBracket
         << "\n  \"newLineAfterOperationSetCloserBracket\" : " << newLineAfterOperationSetCloserBracket
         << "\n  \"newLineAfterOperationSetCloserBracketComma\" : " << newLineAfterOperationSetCloserBracketComma
-        << "\n  \"indentaionInOperationSetBrackets\" : " << indentaionInOperationSetBrackets
+        << "\n  \"indentationInOperationSetBrackets\" : " << indentationInOperationSetBrackets
         << "\n  //Operation wrapper brackets"
         << "\n  \"newLineAfterOperationOpenerBracket\" : " << newLineAfterOperationOpenerBracket
         << "\n  \"newLineAfterOperationCloserBracket\" : " << newLineAfterOperationCloserBracket
         << "\n  \"newLineAfterOperationCloserBracketComma\" : " << newLineAfterOperationCloserBracketComma
-        << "\n  \"indentaionInOperationBrackets\" : " << indentaionInOperationBrackets
+        << "\n  \"indentationInOperationBrackets\" : " << indentationInOperationBrackets
         << "\n  //Operation contents"
         << "\n  \"newLineAfterOperationSegment\" : " << newLineAfterOperationSegment
         << "\n  \"spaceBeforeOperationColon\" : " << spaceBeforeOperationColon
@@ -56,8 +56,8 @@ void PatchStyleSettings::loadSettings(json settingsJson) {
     if (settingsJson.contains("newLineAfterOuterCloserBracket")) {
         newLineAfterOuterCloserBracket = settingsJson["newLineAfterOuterCloserBracket"];
     }
-    if (settingsJson.contains("indentaionInOuterBrackets")) {
-        indentaionInOuterBrackets = settingsJson["indentaionInOuterBrackets"];
+    if (settingsJson.contains("indentationInOuterBrackets")) {
+        indentationInOuterBrackets = settingsJson["indentationInOuterBrackets"];
     }
 	//Operation set wrapper brackets (Starbound specific)
     if (settingsJson.contains("newLineAfterOperationSetOpenerBracket")) {
@@ -69,8 +69,8 @@ void PatchStyleSettings::loadSettings(json settingsJson) {
     if (settingsJson.contains("newLineAfterOperationSetCloserBracketComma")) {
         newLineAfterOperationSetCloserBracketComma = settingsJson["newLineAfterOperationSetCloserBracketComma"];
     }
-    if (settingsJson.contains("indentaionInOperationSetBrackets")) {
-        indentaionInOperationSetBrackets = settingsJson["indentaionInOperationSetBrackets"];
+    if (settingsJson.contains("indentationInOperationSetBrackets")) {
+        indentationInOperationSetBrackets = settingsJson["indentationInOperationSetBrackets"];
     }
 	//Operation wrapper brackets
     if (settingsJson.contains("newLineAfterOperationOpenerBracket")) {
@@ -82,8 +82,8 @@ void PatchStyleSettings::loadSettings(json settingsJson) {
     if (settingsJson.contains("newLineAfterOperationCloserBracketComma")) {
         newLineAfterOperationCloserBracketComma = settingsJson["newLineAfterOperationCloserBracketComma"];
     }
-    if (settingsJson.contains("indentaionInOperationBrackets")) {
-        indentaionInOperationBrackets = settingsJson["indentaionInOperationBrackets"];
+    if (settingsJson.contains("indentationInOperationBrackets")) {
+        indentationInOperationBrackets = settingsJson["indentationInOperationBrackets"];
     }
 	//Operation contents
     if (settingsJson.contains("newLineAfterOperationSegment")) {
@@ -103,17 +103,17 @@ const int PatchStyleSettings::getIndentationSpacesPerModifier() { return indenta
 //Outer wrapper brackets
 const bool PatchStyleSettings::getNewLineAfterOuterOpenerBracket() { return newLineAfterOuterOpenerBracket; }
 const bool PatchStyleSettings::getNewLineAfterOuterCloserBracket() { return newLineAfterOuterCloserBracket; }
-const bool PatchStyleSettings::getIndentaionInOuterBrackets() { return indentaionInOuterBrackets; }
+const bool PatchStyleSettings::getIndentationInOuterBrackets() { return indentationInOuterBrackets; }
 //Operation set wrapper brackets (Starbound specific)
 const bool PatchStyleSettings::getNewLineAfterOperationSetOpenerBracket() { return newLineAfterOperationSetOpenerBracket; }
 const bool PatchStyleSettings::getNewLineAfterOperationSetCloserBracket() { return newLineAfterOperationSetCloserBracket; }
 const bool PatchStyleSettings::getNewLineAfterOperationSetCloserBracketComma() { return newLineAfterOperationSetCloserBracketComma; }
-const bool PatchStyleSettings::getIndentaionInOperationSetBrackets() { return indentaionInOperationSetBrackets; }
+const bool PatchStyleSettings::getIndentationInOperationSetBrackets() { return indentationInOperationSetBrackets; }
 //Operation wrapper brackets
 const bool PatchStyleSettings::getNewLineAfterOperationOpenerBracket() { return newLineAfterOperationOpenerBracket; }
 const bool PatchStyleSettings::getNewLineAfterOperationCloserBracket() { return newLineAfterOperationCloserBracket; }
 const bool PatchStyleSettings::getNewLineAfterOperationCloserBracketComma() { return newLineAfterOperationCloserBracketComma; }
-const bool PatchStyleSettings::getIndentaionInOperationBrackets() { return indentaionInOperationBrackets; }
+const bool PatchStyleSettings::getIndentationInOperationBrackets() { return indentationInOperationBrackets; }
 //Operation contents
 const bool PatchStyleSettings::getNewLineAfterOperationSegment() { return newLineAfterOperationSegment; }
 const bool PatchStyleSettings::getSpaceBeforeOperationColon() { return spaceBeforeOperationColon; }

@@ -11,7 +11,7 @@ JsonPatchWriter::JsonPatchWriter(MasterSettings masterSettings) {
 }
 
 int JsonPatchWriter::writePatchFile(std::stringstream & patchText, FileSettings & fileSettings, const json & sourceJson, const json & intermediaryJson) {
-    indentModifier = baselinePatchStyle.getIndentaionInOuterBrackets() ? 1 : 0;
+    indentModifier = baselinePatchStyle.getIndentationInOuterBrackets() ? 1 : 0;
     currentOps = 0;
     currentOpSets = 0;
 
@@ -148,7 +148,7 @@ bool JsonPatchWriter::writeRecursiveOperationSet(std::stringstream & patchText, 
             PointerSettings modifiedPointerSettings = pointerSettings;
 
             int index = 0;
-            //Iterate with increaing index until no writes happen.
+            //Iterate with increasing index until no writes happen.
             do {
                 std::string indexString = std::to_string(index);
 
@@ -203,7 +203,7 @@ void JsonPatchWriter::writeOperation(std::stringstream & patchText, std::string 
  
     patchText << '{';
     if (baselinePatchStyle.getNewLineAfterOperationOpenerBracket()) patchText << std::endl;
-    indentModifier += baselinePatchStyle.getIndentaionInOperationBrackets() ? 1 : 0;
+    indentModifier += baselinePatchStyle.getIndentationInOperationBrackets() ? 1 : 0;
 
     //op
     writeIndent(patchText);
@@ -260,7 +260,7 @@ void JsonPatchWriter::writeOperation(std::stringstream & patchText, std::string 
     if (baselinePatchStyle.getNewLineAfterOperationSegment()) patchText << std::endl;
 
     //Closing patch bracket.
-    indentModifier -= baselinePatchStyle.getIndentaionInOperationBrackets() ? 1 : 0;
+    indentModifier -= baselinePatchStyle.getIndentationInOperationBrackets() ? 1 : 0;
     writeIndent(patchText);
     patchText << '}';
     currentOps++;
@@ -280,7 +280,7 @@ void JsonPatchWriter::writeOperationSetOpener(std::stringstream & patchText) {
         writeIndent(patchText);
         patchText << '[';
         if (baselinePatchStyle.getNewLineAfterOperationSetOpenerBracket()) patchText << std::endl;
-        indentModifier += baselinePatchStyle.getIndentaionInOperationSetBrackets() ? 1 : 0;
+        indentModifier += baselinePatchStyle.getIndentationInOperationSetBrackets() ? 1 : 0;
     }
 }
 
@@ -289,7 +289,7 @@ void JsonPatchWriter::writeOperationSetCloser(std::stringstream & patchText) {
         //New line after the last patch.
         if (baselinePatchStyle.getNewLineAfterOperationCloserBracket() || baselinePatchStyle.getNewLineAfterOperationCloserBracketComma()) patchText << std::endl;
         //Closing patch set bracket
-        indentModifier -= baselinePatchStyle.getIndentaionInOperationSetBrackets() ? 1 : 0;
+        indentModifier -= baselinePatchStyle.getIndentationInOperationSetBrackets() ? 1 : 0;
         writeIndent(patchText);
         patchText << ']';
     }

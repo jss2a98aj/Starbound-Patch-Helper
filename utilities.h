@@ -44,7 +44,7 @@ void convertQuoteToBreakoutQuote(std::string & text);
 int replaceFirstOfX(std::string & text, const char x, const std::string replacement);
 
 /**
- * Retrives a Text file from the path.
+ * Retrieves a Text file from the path.
  * 
  * @param filePath The path the file is at.
  * @return The file document as std::string.
@@ -52,7 +52,7 @@ int replaceFirstOfX(std::string & text, const char x, const std::string replacem
 const std::string fetchText(std::filesystem::path filePath);
 
 /**
- * Retrives a JSON file from the path.
+ * Retrieves a JSON file from the path.
  * 
  * @param filePath The path the file is at.
  * @param valuesHaveNewlines If values have actual newlines in them.
@@ -61,7 +61,7 @@ const std::string fetchText(std::filesystem::path filePath);
 const nlohmann::json fetchJson(std::filesystem::path filePath, bool valuesHaveNewlines);
 
 /**
- * Retrives a JSON file from the path.
+ * Retrieves a JSON file from the path.
  * 
  * @param filePath The path the file is at.
  * @return The JSON file as nlohmann::json.

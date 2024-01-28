@@ -78,7 +78,7 @@ bool JsonIntermediaryWriter::writeRecursivePointerValuePair(std::stringstream & 
         if (pathMarkerPosition != std::string::npos && (pointerSettings.intermediaryPlaceholderCondition != fromExists || fromMarkerPosition != std::string::npos)) {
             //Pointer settings to be modified for the next recursion.
             PointerSettings modifiedPointerSettings = pointerSettings;
-            //Prevent infinite iterations from occuring.
+            //Prevent infinite iterations from occurring.
             if(modifiedPointerSettings.intermediaryPlaceholderCondition == whenPossible) {
                 modifiedPointerSettings.intermediaryPlaceholderCondition = never;
             }
@@ -86,7 +86,7 @@ bool JsonIntermediaryWriter::writeRecursivePointerValuePair(std::stringstream & 
             int intermediaryLabelMarkerPosition = pointerSettings.intermediaryLabel.find(pointerSettings.numericIteratorMarker);
 
             int index = 0;
-            //Iterate with increaing index until no writes happen.
+            //Iterate with increasing index until no writes happen.
             do {
                 std::string indexString = std::to_string(index);
 
@@ -103,7 +103,7 @@ bool JsonIntermediaryWriter::writeRecursivePointerValuePair(std::stringstream & 
                     break;
                 }
 
-                //Replace the first marker in modifiedFrom with the currect index if required.
+                //Replace the first marker in modifiedFrom with the current index if required.
                 if (pointerSettings.intermediaryPlaceholderCondition == fromExists) {
                     std::string modifiedFrom = pointerSettings.from;
                     modifiedFrom.erase(fromMarkerPosition, pointerSettings.numericIteratorMarker.length());

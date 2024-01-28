@@ -8,17 +8,17 @@ class PatchStyleSettings {
     //Outer wrapper brackets
     bool newLineAfterOuterOpenerBracket = true;
     bool newLineAfterOuterCloserBracket = true;
-    bool indentaionInOuterBrackets = true;
+    bool indentationInOuterBrackets = true;
     //Operation set wrapper brackets (Starbound specific)
     bool newLineAfterOperationSetOpenerBracket = true;
     bool newLineAfterOperationSetCloserBracket = false;
     bool newLineAfterOperationSetCloserBracketComma = true;
-    bool indentaionInOperationSetBrackets = true;
+    bool indentationInOperationSetBrackets = true;
     //Operation wrapper brackets
     bool newLineAfterOperationOpenerBracket = true;
     bool newLineAfterOperationCloserBracket = false;
     bool newLineAfterOperationCloserBracketComma = true;
-    bool indentaionInOperationBrackets = true;
+    bool indentationInOperationBrackets = true;
     //Operation contents
     bool newLineAfterOperationSegment = true;
     bool spaceBeforeOperationColon = true;
@@ -34,17 +34,17 @@ public:
     //Outer wrapper brackets
     const bool getNewLineAfterOuterOpenerBracket();
     const bool getNewLineAfterOuterCloserBracket();
-    const bool getIndentaionInOuterBrackets();
+    const bool getIndentationInOuterBrackets();
     //Operation set wrapper brackets (Starbound specific)
     const bool getNewLineAfterOperationSetOpenerBracket();
     const bool getNewLineAfterOperationSetCloserBracket();
     const bool getNewLineAfterOperationSetCloserBracketComma();
-    const bool getIndentaionInOperationSetBrackets();
+    const bool getIndentationInOperationSetBrackets();
     //Operation wrapper brackets
     const bool getNewLineAfterOperationOpenerBracket();
     const bool getNewLineAfterOperationCloserBracket();
     const bool getNewLineAfterOperationCloserBracketComma();
-    const bool getIndentaionInOperationBrackets();
+    const bool getIndentationInOperationBrackets();
     //Operation contents
     const bool getNewLineAfterOperationSegment();
     const bool getSpaceBeforeOperationColon();

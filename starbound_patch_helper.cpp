@@ -86,7 +86,7 @@ int main(int argc, char * argv[]) {
         intermediaryAssetPath = fs::current_path() /= "intermediary_assets";
         patchOutputPath = fs::current_path() /= "patch_output";
 
-        //Prompt for input until quit tolken is encountered.
+        //Prompt for input until quit token is encountered.
         bool quit = false;
         do {
             std::cout << "Options:\n"
@@ -107,7 +107,7 @@ int main(int argc, char * argv[]) {
                             << "\nCopy assets that should be parsed there and then proceed.\n";
                         system("pause");
                     }
-                    //If an intermediary asset folder exists prompt the user before deleteing it.
+                    //If an intermediary asset folder exists prompt the user before deleting it.
                     if (fs::exists(intermediaryAssetPath)) {
                         if (requestBoolean("An intermediary asset folder already exists.\nShould it be replaced?")) {
                             std::cout << "Deleting old intermediary asset folder.\n";
@@ -121,7 +121,7 @@ int main(int argc, char * argv[]) {
                     parseAssets(masterSettings, sourceAssetPath, intermediaryAssetPath, allFileSettings);
                 //Make patches
                 } else if (input == strMakePatches) {
-                    //If a patch asset folder exists prompt the user before deleteing it.
+                    //If a patch asset folder exists prompt the user before deleting it.
                     if (fs::exists(patchOutputPath)) {
                         if (requestBoolean("A patch folder already exists.\nShould it be replaced?")) {
                             std::cout << "Deleting old patch output folder.\n";

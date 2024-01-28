@@ -8,7 +8,7 @@
 void clearInput();
 
 /**
- * Promts for a yes/no input from the terminal.
+ * Prompts for a yes/no input from the terminal.
  * 
  * @param message  The message to display.
  * @return If the user answered yes or no.
