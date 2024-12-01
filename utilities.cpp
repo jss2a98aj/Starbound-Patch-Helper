@@ -8,6 +8,11 @@ namespace fs = std::filesystem;
 
 enum StripMode { structure, quote, commentSingle, commentMulti };
 
+/**
+ * Strip JSON comments from strings.
+ * 
+ * @param text The text to remove JSON comments from.
+ */
 void stripJsonComments(std::string & text) {
     StripMode mode = structure;
     int commentStart, commentLength;
@@ -55,6 +60,11 @@ void stripJsonComments(std::string & text) {
     }
 }
 
+/**
+ * Converts newlines in JSON values to breakout newlines.
+ * 
+ * @param text The text to convert newlines in.
+ */
 void convertJsonValueNewlinesToBreakout(std::string & text) {
     StripMode mode = structure;
     char prev = 'U', current = 'U';
@@ -79,17 +89,11 @@ void convertJsonValueNewlinesToBreakout(std::string & text) {
     }
 }
 
-int replaceFirstOfX(std::string & text, const char x, const std::string replacement) {
-    for (int i = 0; i < text.size(); i++) {
-        if (text[i] == x) {
-            text.erase(i, 1);
-            text.insert(i, replacement);
-            return i;
-        }
-    }
-    return -1;
-}
-
+/**
+ * Converts breakout newlines in JSON values to newlines.
+ * 
+ * @param text The text to convert breakout newlines in.
+ */
 void convertNewlineBreakoutsToNewline(std::string & text) {
     char prev = 'U', current = 'U';
     for (int i = 0; i < text.size(); i++) {
@@ -105,6 +109,11 @@ void convertNewlineBreakoutsToNewline(std::string & text) {
     }
 }
 
+/**
+ * Converts quotes in JSON values to breakout quotes.
+ * 
+ * @param text The text to convert quotes in.
+ */
 void convertQuoteToBreakoutQuote(std::string & text) {
     char prev = 'U', current = 'U';
     for (int i = 0; i < text.size(); i++) {
@@ -117,6 +126,31 @@ void convertQuoteToBreakoutQuote(std::string & text) {
     }
 }
 
+/**
+ * Converts breakout newlines in values to newlines".
+ * 
+ * @param text The text to have a character replaced in.
+ * @param x The character to replace.
+ * @param replacement The string to replace the character with.
+ * @return The position of the character replaced, -1 if none.
+ */
+int replaceFirstOfX(std::string & text, const char x, const std::string replacement) {
+    for (int i = 0; i < text.size(); i++) {
+        if (text[i] == x) {
+            text.erase(i, 1);
+            text.insert(i, replacement);
+            return i;
+        }
+    }
+    return -1;
+}
+
+/**
+ * Retrieves a Text file from the path.
+ * 
+ * @param filePath The path the file is at.
+ * @return The file document as std::string.
+ */
 const std::string fetchText(fs::path filePath) {
     std::ifstream textFile;
     std::stringstream textStream;
@@ -129,6 +163,13 @@ const std::string fetchText(fs::path filePath) {
     return textStream.str();
 }
 
+/**
+ * Retrieves a JSON file from the path.
+ * 
+ * @param filePath The path the file is at.
+ * @param valuesHaveNewlines If values have actual newlines in them.
+ * @return The JSON file as nlohmann::json.
+ */
 const json fetchJson(fs::path filePath, bool valuesHaveNewlines) {
     std::string jsonString = fetchText(filePath);
     stripJsonComments(jsonString);
@@ -139,10 +180,23 @@ const json fetchJson(fs::path filePath, bool valuesHaveNewlines) {
     return json::parse(jsonString);
 }
 
+/**
+ * Retrieves a JSON file from the path.
+ * 
+ * @param filePath The path the file is at.
+ * @return The JSON file as nlohmann::json.
+ */
 const json fetchJson(fs::path filePath) {
     return fetchJson(filePath, false);
 }
 
+/**
+ * Writes a string steam to a specific path..
+ * 
+ * @param stream The string stream to write.
+ * @param filePath The path the file should be written to.
+ * @return If the file was written.
+ */
 const bool writeStringStreamToPath(std::stringstream & stream, std::filesystem::path filePath) {
     if (fs::exists(filePath.parent_path()) || fs::create_directories(filePath.parent_path())) {
         std::ofstream textFile;

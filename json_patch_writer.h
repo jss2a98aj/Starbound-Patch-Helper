@@ -33,14 +33,5 @@ private:
     void writeColon(std::stringstream & patchText);
 public:
     JsonPatchWriter(MasterSettings masterSettings);
-    /**
-     * Writes a patch file. Some configurations will not comply with official JSON patch standards.
-     * 
-     * @param patchText The string stream the patches will be written to.
-     * @param fileSettings The file extension specific settings to use when making patches.
-     * @param sourceJson The JSON patches will assume is used as a base.
-     * @param intermediaryJson The JSON patches will try to make the base mimic when applied.
-     * @return How many values the resulting patch will add or replace.
-     */
     int writePatchFile(std::stringstream & patchText, FileSettings & fileSettings, const nlohmann::json & sourceJson, const nlohmann::json & intermediaryJson);
 };

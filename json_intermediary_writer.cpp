@@ -9,6 +9,14 @@ JsonIntermediaryWriter::JsonIntermediaryWriter(){
     
 }
 
+/**
+ * Writes an intermediary file. Some configurations will not comply with official JSON standards.
+ * 
+ * @param patchText The string stream the intermediary JSON will be written to.
+ * @param fileSettings The file extension specific settings to use when parsing.
+ * @param sourceJson The JSON things are parsed from.
+ * @return How many values the resulting intermediary JSON contains.
+ */
 int JsonIntermediaryWriter::writeIntermediaryFile(std::stringstream & intermediaryText, FileSettings & fileSettings, const json & sourceJson) {
     totalIntermediaryValues = 0;
 

@@ -80,10 +80,18 @@ FileSettings::FileSettings(fs::path settingsPath) {
     }
 }
 
+/**
+ * Writes example settings to a string stream.
+ * 
+ * @param settingsText The std::stringstream that will be written to.
+ */
 void FileSettings::writeExampleSettings(std::stringstream & settingsText) {
     //TODO: Write example settings.
 }
 
+/**
+ * @return If there are any pointerSettings in allPointerSettings.
+ */
 const bool FileSettings::hasPointerSettings() {
     return allPointerSettings.size() >= 1;
 }

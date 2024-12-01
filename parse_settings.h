@@ -39,15 +39,7 @@ private:
     std::vector<PointerSettings> allPointerSettings;
 public:
     FileSettings(std::filesystem::path settingsPath);
-    /**
-     * Writes example settings to a string stream.
-     * 
-     * @param settingsText The std::stringstream that will be written to.
-     */
     void writeExampleSettings(std::stringstream & settingsText);
-    /**
-     * @return If there are any pointerSettings in allPointerSettings.
-     */
     const bool hasPointerSettings();
     //Getters
     const std::string getFileExtension();
