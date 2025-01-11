@@ -127,9 +127,9 @@ void convertQuoteToBreakoutQuote(std::string & text) {
 }
 
 /**
- * Converts breakout newlines in values to newlines".
+ * Replaces the first matching character in a string".
  * 
- * @param text The text to have a character replaced in.
+ * @param text The text to replace a character in.
  * @param x The character to replace.
  * @param replacement The string to replace the character with.
  * @return The position of the character replaced, -1 if none.
@@ -146,10 +146,10 @@ int replaceFirstOfX(std::string & text, const char x, const std::string replacem
 }
 
 /**
- * Retrieves a Text file from the path.
+ * Loads a text file from the path and returns a string.
  * 
- * @param filePath The path the file is at.
- * @return The file document as std::string.
+ * @param filePath The path to load the file from.
+ * @return The file converted into an std::string object.
  */
 const std::string fetchText(fs::path filePath) {
     std::ifstream textFile;
@@ -164,11 +164,11 @@ const std::string fetchText(fs::path filePath) {
 }
 
 /**
- * Retrieves a JSON file from the path.
+ * Loads a JSON file from the path and returns a nlohmann::json object.
  * 
- * @param filePath The path the file is at.
+ * @param filePath The path to load the file from.
  * @param valuesHaveNewlines If values have actual newlines in them.
- * @return The JSON file as nlohmann::json.
+ * @return The JSON file converted into a nlohmann::json object.
  */
 const json fetchJson(fs::path filePath, bool valuesHaveNewlines) {
     std::string jsonString = fetchText(filePath);
@@ -181,19 +181,19 @@ const json fetchJson(fs::path filePath, bool valuesHaveNewlines) {
 }
 
 /**
- * Retrieves a JSON file from the path.
+ * Loads a JSON file from the path and returns a nlohmann::json object.
  * 
- * @param filePath The path the file is at.
- * @return The JSON file as nlohmann::json.
+ * @param filePath The path to load the file from.
+ * @return The JSON file converted into a nlohmann::json object.
  */
 const json fetchJson(fs::path filePath) {
     return fetchJson(filePath, false);
 }
 
 /**
- * Writes a string steam to a specific path..
+ * Writes a string stream to a specific path.
  * 
- * @param stream The string stream to write.
+ * @param stream The string stream that will be written from.
  * @param filePath The path the file should be written to.
  * @return If the file was written.
  */
