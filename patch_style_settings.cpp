@@ -1,6 +1,5 @@
 #include "patch_style_settings.h"
 
-#include <fstream>
 #include "utilities.h"
 
 using json = nlohmann::json;

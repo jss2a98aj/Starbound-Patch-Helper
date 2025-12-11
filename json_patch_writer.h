@@ -1,7 +1,6 @@
 #pragma once
 
 #include <sstream>
-#include "nlohmann/json.hpp"
 #include "global_settings.h"
 #include "parse_settings.h"
 
