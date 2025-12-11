@@ -1,18 +1,29 @@
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.28 FATAL_ERROR)
 
 project(SBPatchHelper VERSION 0.1.1 LANGUAGES C CXX)
 
-set(CMAKE_CXX_STANDARD 23)
+# Require C++ 20
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-include(FetchContent)
+# Used by clangd
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-FetchContent_Declare(json
-    GIT_REPOSITORY https://github.com/nlohmann/json
-    GIT_TAG v3.11.3
+# CPM
+file(
+	DOWNLOAD
+		https://github.com/cpm-cmake/CPM.cmake/releases/download/v0.42.0/CPM.cmake
+		${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake
+		EXPECTED_HASH SHA256=2020b4fc42dba44817983e06342e682ecfc3d2f484a581f11cc5731fbe4dce8a
 )
+include(${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake)
 
-FetchContent_MakeAvailable(json)
+# Nlohmann JSON 3.12.0
+CPMAddPackage(
+	URI "gh:nlohmann/json#55f9368"
+	OPTIONS "JSON_BuildTests OFF"
+)
 
 add_executable(${PROJECT_NAME}
     starbound_patch_helper.cpp

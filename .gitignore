@@ -1,7 +1,11 @@
-/.vscode
-/*.exe
+.cache/
+.vscode/
+build/
+temp/
+src/generated/
 
-/build/
+CMakeUserPresets.json
+
 /config/settings.json
 /intermediary_assets
 /patch_output

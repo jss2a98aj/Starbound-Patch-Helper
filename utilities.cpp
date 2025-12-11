@@ -85,6 +85,8 @@ void convertJsonValueNewlinesToBreakout(std::string & text) {
                 text.erase(i, 1);
                 text.insert(i, "\\n");
             }
+        default:
+            break;
         }
     }
 }
