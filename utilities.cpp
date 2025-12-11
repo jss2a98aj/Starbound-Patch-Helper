@@ -14,50 +14,50 @@ enum StripMode { structure, quote, commentSingle, commentMulti };
  * @param text The text to remove JSON comments from.
  */
 void stripJsonComments(std::string & text) {
-    StripMode mode = structure;
-    int commentStart, commentLength;
-    char prev = 'U', current = 'U';
-    for(int i = 0; i < text.length(); ++i) {
-        prev = current;
-        current = text[i];
-        switch(mode) {
-            case structure:
-                if(current == '"') {
-                    mode = quote;
-                } else if(prev == '/') {
-                    if(current == '/') {
-                        mode = commentSingle;
-                        text[i - 1] = ' ';
-                        text[i] = ' ';
-                    } else if(current == '*') {
-                        mode = commentMulti;
-                        text[i - 1] = ' ';
-                        text[i] = ' ';
-                    }
-                }
-            break;
-            case quote:
-                if(prev != '\\' && current == '"') {
-                    mode = structure;
-                }
-            break;
-            case commentSingle:
-                if(current == '\n') {
-                    mode = structure;
-                } else {
-                    text[i] = ' ';
-                }
-            break;
-            case commentMulti:
-                if (prev == '*' && current == '/') {
-                    mode = structure;
-                }
-                if(current != '\n') {
-                    text[i] = ' ';
-                }
-            break;
-        }
-    }
+	StripMode mode = structure;
+	int commentStart, commentLength;
+	char prev = 'U', current = 'U';
+	for(int i = 0; i < text.length(); ++i) {
+		prev = current;
+		current = text[i];
+		switch(mode) {
+			case structure:
+				if(current == '"') {
+					mode = quote;
+				} else if(prev == '/') {
+					if(current == '/') {
+						mode = commentSingle;
+						text[i - 1] = ' ';
+						text[i] = ' ';
+					} else if(current == '*') {
+						mode = commentMulti;
+						text[i - 1] = ' ';
+						text[i] = ' ';
+					}
+				}
+			break;
+			case quote:
+				if(prev != '\\' && current == '"') {
+					mode = structure;
+				}
+			break;
+			case commentSingle:
+				if(current == '\n') {
+					mode = structure;
+				} else {
+					text[i] = ' ';
+				}
+			break;
+			case commentMulti:
+				if (prev == '*' && current == '/') {
+					mode = structure;
+				}
+				if(current != '\n') {
+					text[i] = ' ';
+				}
+			break;
+		}
+	}
 }
 
 /**
@@ -66,29 +66,29 @@ void stripJsonComments(std::string & text) {
  * @param text The text to convert newlines in.
  */
 void convertJsonValueNewlinesToBreakout(std::string & text) {
-    StripMode mode = structure;
-    char prev = 'U', current = 'U';
-    for (int i = 0; i < text.size(); i++) {
-        prev = current;
-        current = text[i];
-        switch (mode) {
-        case structure:
-            if (current == '"') {
-                mode = quote;
-            }
-            break;
-        case quote:
-            //Check if at end of quote.
-            if (prev != '\\' && current == '"') {
-                mode = structure;
-            } else if (current == '\n') {
-                text.erase(i, 1);
-                text.insert(i, "\\n");
-            }
-        default:
-            break;
-        }
-    }
+	StripMode mode = structure;
+	char prev = 'U', current = 'U';
+	for (int i = 0; i < text.size(); i++) {
+		prev = current;
+		current = text[i];
+		switch (mode) {
+		case structure:
+			if (current == '"') {
+				mode = quote;
+			}
+			break;
+		case quote:
+			//Check if at end of quote.
+			if (prev != '\\' && current == '"') {
+				mode = structure;
+			} else if (current == '\n') {
+				text.erase(i, 1);
+				text.insert(i, "\\n");
+			}
+		default:
+			break;
+		}
+	}
 }
 
 /**
@@ -97,18 +97,18 @@ void convertJsonValueNewlinesToBreakout(std::string & text) {
  * @param text The text to convert breakout newlines in.
  */
 void convertNewlineBreakoutsToNewline(std::string & text) {
-    char prev = 'U', current = 'U';
-    for (int i = 0; i < text.size(); i++) {
-        prev = current;
-        current = text[i];
-        if (prev == '\\' && current == 'n') {
-            text.erase(i - 1, 2);
-            text.insert(i - 1, "\n");
-            prev = 'U';
-            current = text[i];
-            i--;
-        }
-    }
+	char prev = 'U', current = 'U';
+	for (int i = 0; i < text.size(); i++) {
+		prev = current;
+		current = text[i];
+		if (prev == '\\' && current == 'n') {
+			text.erase(i - 1, 2);
+			text.insert(i - 1, "\n");
+			prev = 'U';
+			current = text[i];
+			i--;
+		}
+	}
 }
 
 /**
@@ -117,15 +117,15 @@ void convertNewlineBreakoutsToNewline(std::string & text) {
  * @param text The text to convert quotes in.
  */
 void convertQuoteToBreakoutQuote(std::string & text) {
-    char prev = 'U', current = 'U';
-    for (int i = 0; i < text.size(); i++) {
-        prev = current;
-        current = text[i];
-        if (prev != '\\' && current == '\"') {
-            text.insert(i, "\\");
-            current = '\\';
-        }
-    }
+	char prev = 'U', current = 'U';
+	for (int i = 0; i < text.size(); i++) {
+		prev = current;
+		current = text[i];
+		if (prev != '\\' && current == '\"') {
+			text.insert(i, "\\");
+			current = '\\';
+		}
+	}
 }
 
 /**
@@ -137,14 +137,14 @@ void convertQuoteToBreakoutQuote(std::string & text) {
  * @return The position of the character replaced, -1 if none.
  */
 int replaceFirstOfX(std::string & text, const char x, const std::string replacement) {
-    for (int i = 0; i < text.size(); i++) {
-        if (text[i] == x) {
-            text.erase(i, 1);
-            text.insert(i, replacement);
-            return i;
-        }
-    }
-    return -1;
+	for (int i = 0; i < text.size(); i++) {
+		if (text[i] == x) {
+			text.erase(i, 1);
+			text.insert(i, replacement);
+			return i;
+		}
+	}
+	return -1;
 }
 
 /**
@@ -154,15 +154,15 @@ int replaceFirstOfX(std::string & text, const char x, const std::string replacem
  * @return The file converted into an std::string object.
  */
 const std::string fetchText(fs::path filePath) {
-    std::ifstream textFile;
-    std::stringstream textStream;
+	std::ifstream textFile;
+	std::stringstream textStream;
 
-    //TODO: Handle read failures more gracefully.
-    textFile.open(filePath);
-    textStream << textFile.rdbuf();
-    textFile.close();
+	//TODO: Handle read failures more gracefully.
+	textFile.open(filePath);
+	textStream << textFile.rdbuf();
+	textFile.close();
 
-    return textStream.str();
+	return textStream.str();
 }
 
 /**
@@ -173,13 +173,13 @@ const std::string fetchText(fs::path filePath) {
  * @return The JSON file converted into a nlohmann::json object.
  */
 const json fetchJson(fs::path filePath, bool valuesHaveNewlines) {
-    std::string jsonString = fetchText(filePath);
-    stripJsonComments(jsonString);
-    if (valuesHaveNewlines) {
-        convertJsonValueNewlinesToBreakout(jsonString);
-    }
-    //TODO: Handle conversion failures more gracefully.
-    return json::parse(jsonString);
+	std::string jsonString = fetchText(filePath);
+	stripJsonComments(jsonString);
+	if (valuesHaveNewlines) {
+		convertJsonValueNewlinesToBreakout(jsonString);
+	}
+	//TODO: Handle conversion failures more gracefully.
+	return json::parse(jsonString);
 }
 
 /**
@@ -189,7 +189,7 @@ const json fetchJson(fs::path filePath, bool valuesHaveNewlines) {
  * @return The JSON file converted into a nlohmann::json object.
  */
 const json fetchJson(fs::path filePath) {
-    return fetchJson(filePath, false);
+	return fetchJson(filePath, false);
 }
 
 /**
@@ -200,13 +200,13 @@ const json fetchJson(fs::path filePath) {
  * @return If the file was written.
  */
 const bool writeStringStreamToPath(std::stringstream & stream, std::filesystem::path filePath) {
-    if (fs::exists(filePath.parent_path()) || fs::create_directories(filePath.parent_path())) {
-        std::ofstream textFile;
-        //TODO: Handle write failures more gracefully.
-        textFile.open(filePath);
-        textFile << stream.rdbuf();
-        textFile.close();
-        return true;
-    }
-    return false;
+	if (fs::exists(filePath.parent_path()) || fs::create_directories(filePath.parent_path())) {
+		std::ofstream textFile;
+		//TODO: Handle write failures more gracefully.
+		textFile.open(filePath);
+		textFile << stream.rdbuf();
+		textFile.close();
+		return true;
+	}
+	return false;
 }

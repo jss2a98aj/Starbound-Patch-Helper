@@ -9,10 +9,10 @@ private:
 	std::string baselinePatchStyleName = "default";
 	bool overwriteFiles = false;
 	bool useInverseTestOps = true;
-    bool useOperationSets = true;
+	bool useOperationSets = true;
 
-    bool loadSettings(nlohmann::json settingsJson);
-    void writeSettings(std::stringstream & settingsText);
+	bool loadSettings(nlohmann::json settingsJson);
+	void writeSettings(std::stringstream & settingsText);
 	void postLoad();
 public:
 	MasterSettings(std::filesystem::path settingsPath);
